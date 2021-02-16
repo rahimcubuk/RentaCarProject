@@ -3,17 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Entities", "Project.Entities\Project.Entities.csproj", "{7C4908BD-1B85-4B19-864E-34EB383B6D3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project.Entities", "Project.Entities\Project.Entities.csproj", "{7C4908BD-1B85-4B19-864E-34EB383B6D3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.DataAccess", "Project.DataAccess\Project.DataAccess.csproj", "{7D6584A9-2B2D-4C6A-81AE-83BFAA87E49A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project.DataAccess", "Project.DataAccess\Project.DataAccess.csproj", "{7D6584A9-2B2D-4C6A-81AE-83BFAA87E49A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Business", "Project.Business\Project.Business.csproj", "{F7CB1492-8793-41E0-BFDE-CF1B101052A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project.Business", "Project.Business\Project.Business.csproj", "{F7CB1492-8793-41E0-BFDE-CF1B101052A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{CBD4DDC7-633F-4B48-B518-D4EE66F72A47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{CBD4DDC7-633F-4B48-B518-D4EE66F72A47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.UserInterface", "Project.UserInterface\Project.UserInterface.csproj", "{7E665744-54BA-4644-95E2-9DDBA2F19104}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project.UserInterface", "Project.UserInterface\Project.UserInterface.csproj", "{7E665744-54BA-4644-95E2-9DDBA2F19104}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{1DCDFDF3-AF80-4694-A28B-B09FACABA019}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{1DCDFDF3-AF80-4694-A28B-B09FACABA019}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{BEE263B7-066A-4D5D-B565-100F1DDDF85D}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\rahim\Desktop\database.sql = C:\Users\rahim\Desktop\database.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
