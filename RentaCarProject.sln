@@ -15,11 +15,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project.UserInterface", "Pr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{1DCDFDF3-AF80-4694-A28B-B09FACABA019}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{BEE263B7-066A-4D5D-B565-100F1DDDF85D}"
-	ProjectSection(SolutionItems) = preProject
-		C:\Users\rahim\Desktop\database.sql = C:\Users\rahim\Desktop\database.sql
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
