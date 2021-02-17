@@ -46,6 +46,6 @@ CarRental Projenizde Core katmanı oluşturunuz.
 * Geliştirme aşamasında "Microsoft Blend for Visual Studio Community 2019 Version 16.8.5" kullanılmıştır.
 * Veritabanı olarak MsSQL kullanılmış ve veritabanı ile iletişim "Microsoft.EntityFrameworkCore.SqlServer v3.1.11" ile sağlanmıştır.
 * Veritabanı "Microsoft SQL Server Management Studio 11.0.3000.0" ile tasarlanıştır.
-NOT: Verıtabanı dosyaları database klasörü içerisindedir. Uygun bir programda(min SQL server 12) script.sql dosyasını çalıştırırsanız veritabanı bilgisayarınıza yüklenmiş olacaktır. Sonrasında uygulamayı kullanmaya başlayabilirsiniz.
+NOT: Verıtabanı dosyaları "Entities/Database" klasörü içerisindedir. Uygun bir programda(min SQL server 12) script.sql dosyasını çalıştırırsanız veritabanı bilgisayarınıza yüklenmiş olacaktır. Sonrasında uygulamayı kullanmaya başlayabilirsiniz.
 
 Yardım, destek, öneri için rahimcubuk@gmail.com adresine mail atabilirsiniz.
