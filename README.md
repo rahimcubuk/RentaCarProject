@@ -40,9 +40,12 @@ CarRental Projenizde Core katmanı oluşturunuz.
 * Arabayı kiralama imkanını kodlayınız. Rental-->Add
 * Arabanın kiralanabilmesi için arabanın teslim edilmesi gerekmektedir.
 
+### Kodlama.io 11. gun odev gereksinimleri
+* WebAPI katmanını kurunuz.
+* Business katmanındaki tüm servislerin Api karşılığını yazınız.
+
 
 ### Geliştirme Ortam Bilgileri
-
 * Geliştirme aşamasında "Microsoft Blend for Visual Studio Community 2019 Version 16.8.5" kullanılmıştır.
 * Veritabanı olarak MsSQL kullanılmış ve veritabanı ile iletişim "Microsoft.EntityFrameworkCore.SqlServer v3.1.11" ile sağlanmıştır.
 * Veritabanı "Microsoft SQL Server Management Studio 11.0.3000.0" ile tasarlanıştır.
