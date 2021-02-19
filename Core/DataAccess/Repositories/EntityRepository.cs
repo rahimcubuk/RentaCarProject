@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Data.Entity.Validation;
-using Project.Core.DataAccess.Validations;
 using Project.Core.Entities;
 using DbContext = Microsoft.EntityFrameworkCore.DbContext;
 using EntityState = Microsoft.EntityFrameworkCore.EntityState;
@@ -16,17 +14,10 @@ namespace Project.Core.DataAccess.Repositories
     {
         public void Add(TEntity entity)
         {
-            try
+            using (TContext context = new TContext())
             {
-                using (TContext context = new TContext())
-                {
-                    context.Entry(entity).State = EntityState.Added;
-                    context.SaveChanges();
-                }
-            }
-            catch (DbEntityValidationException e)
-            {
-                Validator.ValidationErrors(e);
+                context.Entry(entity).State = EntityState.Added;
+                context.SaveChanges();
             }
         }
 

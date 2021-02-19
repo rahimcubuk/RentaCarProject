@@ -30,7 +30,7 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            IocContainer(services);
+            //IocContainer(services);
         }
 
         private static void IocContainer(IServiceCollection services)

@@ -7,6 +7,8 @@ using Project.Business.Constants;
 using Project.Core.Utilities.Results.Concrete;
 using Project.Core.Utilities.Results.Abstract;
 using Project.Entities.Concrete.DTOs;
+using Core.Aspects.Autofac.Validation;
+using Project.Business.ValidationRules.FluentValidation;
 
 namespace Project.Business.Concrete.Managers
 {
@@ -21,6 +23,7 @@ namespace Project.Business.Concrete.Managers
         #endregion
 
         #region Metotlar
+        [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car entity)
         {
             _carDal.Add(entity);
