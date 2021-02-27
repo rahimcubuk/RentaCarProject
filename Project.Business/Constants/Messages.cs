@@ -23,6 +23,9 @@ namespace Project.Business.Constants
         public static string ErrorListed = "Listeleme Basarisiz.";
 
         public static string CarImageLimitExceded = "Fotograf ekleme limit asimi";
+        public static string CarIsNotFound = "Fotografi eklenmek istenen arac bulunamadi";
+        public static string ImageIsNotFound = "Bu araca ait fotograf bulunamadi.";
+
         #endregion
     }
 }

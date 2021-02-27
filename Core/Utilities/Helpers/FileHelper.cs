@@ -48,5 +48,10 @@ namespace Core.Utilities.Helpers
             string result = $@"{Environment.CurrentDirectory + @"\Images\Cars"}\{Guid.NewGuid().ToString() + fileExtension}";
             return result;
         }
+        public static string NewPath()
+        {
+            string result = $@"{Environment.CurrentDirectory + @"\Images\Cars"}\{"logo.png"}";
+            return result;
+        }
     }
 }

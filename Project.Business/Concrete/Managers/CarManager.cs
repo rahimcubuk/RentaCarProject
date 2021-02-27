@@ -22,6 +22,17 @@ namespace Project.Business.Concrete.Managers
         }
         #endregion
 
+        #region Business Rule
+       /* private IResult CheckIfCarImageExists(int carId)
+        {
+            int count = _carImageService.GetByCarId(carId).Data.Count;
+            if (count == 0)
+            {
+                _carImageService.Add();
+            }
+        }*/
+        #endregion
+
         #region Metotlar
         [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car entity)

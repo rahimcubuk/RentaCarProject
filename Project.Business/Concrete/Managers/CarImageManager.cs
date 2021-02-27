@@ -20,9 +20,11 @@ namespace Project.Business.Concrete.Managers
     {
         #region Kurucu Metotlar
         private ICarImageDal _imageDal;
-        public CarImageManager(ICarImageDal carImageDal)
+        private ICarService _carService;
+        public CarImageManager(ICarImageDal carImageDal, ICarService carService)
         {
             _imageDal = carImageDal;
+            _carService = carService;
         }
         #endregion
 
@@ -32,7 +34,45 @@ namespace Project.Business.Concrete.Managers
             int count = _imageDal.GetAll(i => i.CarId == carId).Count;
             return count > 5 ? new ErrorResult(Messages.CarImageLimitExceded) : (IResult)new SuccessResult();
         }
-
+        private IResult CheckIfCarExists(int carId)
+        {
+            var result = _carService.GetById(carId).Data;
+            return result == null ? new ErrorResult(Messages.CarIsNotFound) : (IResult)new SuccessResult();
+        }
+        private IResult CheckIfCarImageExists(int carId)
+        {
+            var result = BusinessRules.Run(CheckIfCarExists(carId));
+            if (!result.Success) return new ErrorResult(Messages.CarIsNotFound);
+            
+            var data = _imageDal.GetAll(i => i.CarId == carId).Count;
+            if (data == 0)
+            {
+                AddImageToCar(carId);
+                return new ErrorResult(Messages.ImageIsNotFound);
+            }
+            
+            return new SuccessResult();
+        }
+        private IResult CheckIfCarImageExistsById(int id)
+        {
+            var result = _imageDal.GetAll(i => i.Id == id).Count;
+            if (result == 0)
+            {
+                return new ErrorResult(Messages.ImageIsNotFound);
+            }
+            return new SuccessResult();
+        }
+        private IResult AddImageToCar(int carId)
+        {
+            string path = FileHelper.NewPath();
+            _imageDal.Add(new CarImage()
+            {
+                CarId = carId,
+                ImagePath = path,
+                Date = DateTime.Now
+            });
+            return new SuccessResult(Messages.SuccessAdded);
+        }
         #endregion
 
         #region Metotlar
@@ -40,7 +80,7 @@ namespace Project.Business.Concrete.Managers
         [ValidationAspect(typeof(CarImageValidator))]
         public IResult Add(IFormFile image, CarImage entity)
         {
-            IResult result = BusinessRules.Run(CheckCountOfImageByCar(entity.CarId));
+            IResult result = BusinessRules.Run(CheckCountOfImageByCar(entity.CarId), CheckIfCarExists(entity.CarId));
 
             if (!(result is null)) return result;
 
@@ -52,6 +92,10 @@ namespace Project.Business.Concrete.Managers
 
         public IResult Delete(CarImage entity)
         {
+            IResult result = BusinessRules.Run(CheckIfCarImageExistsById(entity.Id));
+
+            if (!(result is null)) return result;
+
             FileHelper.Delete(GetById(entity.Id).Data.ImagePath);
             _imageDal.Delete(entity);
             return new SuccessResult(Messages.SuccessDeleted);
@@ -59,6 +103,10 @@ namespace Project.Business.Concrete.Managers
 
         public IResult Update(IFormFile image, CarImage entity)
         {
+            IResult result = BusinessRules.Run(CheckIfCarImageExistsById(entity.Id));
+
+            if (!(result is null)) return result;
+
             entity.ImagePath = FileHelper.Update(_imageDal.GetById(p => p.Id == entity.Id).ImagePath, image);
             entity.Date = DateTime.Now;
             _imageDal.Update(entity);
@@ -87,8 +135,10 @@ namespace Project.Business.Concrete.Managers
 
         public IDataResult<List<CarImage>> GetByCarId(int id)
         {
+            var result = BusinessRules.Run(CheckIfCarImageExists(id));
+
             var data = _imageDal.GetAll(i => i.CarId == id);
-            if (data is null) return new ErrorDataResult<List<CarImage>>(data, Messages.ErrorListed);
+            if (data.Count == 0) return new ErrorDataResult<List<CarImage>>(data, Messages.ErrorListed);
             return new SuccessDataResult<List<CarImage>>(data, Messages.SuccessListed);
         }
 
