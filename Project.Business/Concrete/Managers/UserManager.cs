@@ -1,7 +1,7 @@
 ﻿using Project.Business.Abstract.Services;
 using Project.Business.Constants;
-using Project.Core.Utilities.Results.Abstract;
-using Project.Core.Utilities.Results.Concrete;
+using Core.Utilities.Results.Abstract;
+using Core.Utilities.Results.Concrete;
 using Project.DataAccess.Abstract.Dals;
 using Project.Entities.Concrete.Models;
 using System.Collections.Generic;

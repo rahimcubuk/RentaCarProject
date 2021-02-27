@@ -1,9 +1,9 @@
-﻿using Project.Core.Entities;
+﻿using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace Project.Core.DataAccess.Repositories
+namespace Core.DataAccess.Repositories
 {
     public interface IEntityRepository<TEntity>
         where TEntity : class, IEntity, new()

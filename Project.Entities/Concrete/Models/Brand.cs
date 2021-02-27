@@ -1,4 +1,4 @@
-﻿using Project.Core.Entities;
+﻿using Core.Entities;
 
 namespace Project.Entities.Concrete.Models
 {

@@ -1,4 +1,4 @@
-﻿namespace Project.Core.Entities
+﻿namespace Core.Entities
 {
     public interface IEntity
     {

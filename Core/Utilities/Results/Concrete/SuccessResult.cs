@@ -1,4 +1,4 @@
-﻿namespace Project.Core.Utilities.Results.Concrete
+﻿namespace Core.Utilities.Results.Concrete
 {
     public class SuccessResult : Result
     {

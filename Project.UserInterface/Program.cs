@@ -1,4 +1,5 @@
-﻿using Project.UserInterface.Menu;
+﻿using Core.Utilities.Helpers;
+using Project.UserInterface.Menu;
 using System;
 
 namespace Project.UserInterface
@@ -8,7 +9,7 @@ namespace Project.UserInterface
         static void Main(string[] args)
         {
             Console.WriteLine("Arac Kiralama Uygulamasi");
-
+            
             #region Uygulama Menusu
 
             Console.WriteLine("Arac Menusu icin          : 1");

@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using Project.Core.Entities;
-using DbContext = Microsoft.EntityFrameworkCore.DbContext;
-using EntityState = Microsoft.EntityFrameworkCore.EntityState;
+using Microsoft.EntityFrameworkCore;
+using Core.Entities;
 
-namespace Project.Core.DataAccess.Repositories
+namespace Core.DataAccess.Repositories
 {
     public class EntityRepository<TEntity, TContext> : IEntityRepository<TEntity>
         where TEntity : class, IEntity, new()

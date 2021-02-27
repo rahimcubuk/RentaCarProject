@@ -21,6 +21,8 @@ namespace Project.Business.Constants
         public static string ErrorUpdated = "Guncelleme Basarisiz.";
         public static string ErrorDeleted = "Silme basarisiz.";
         public static string ErrorListed = "Listeleme Basarisiz.";
+
+        public static string CarImageLimitExceded = "Fotograf ekleme limit asimi";
         #endregion
     }
 }

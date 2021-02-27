@@ -1,4 +1,4 @@
-﻿using Project.Core.DataAccess.Repositories;
+﻿using Core.DataAccess.Repositories;
 using Project.Entities.Concrete.DTOs;
 using Project.Entities.Concrete.Models;
 using System;

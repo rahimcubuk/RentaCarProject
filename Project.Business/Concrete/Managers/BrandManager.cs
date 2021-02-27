@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using Project.Entities.Concrete.Models;
 using Project.DataAccess.Abstract.Dals;
-using Project.Core.Utilities.Results.Abstract;
+using Core.Utilities.Results.Abstract;
 using Project.Business.Constants;
-using Project.Core.Utilities.Results.Concrete;
+using Core.Utilities.Results.Concrete;
 
 namespace Project.Business.Concrete.Managers
 {

@@ -1,5 +1,5 @@
 ﻿using Project.Business.Abstract.Repository;
-using Project.Core.Utilities.Results.Abstract;
+using Core.Utilities.Results.Abstract;
 using Project.Entities.Concrete.DTOs;
 using Project.Entities.Concrete.Models;
 using System.Collections.Generic;

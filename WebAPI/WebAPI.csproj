@@ -15,5 +15,9 @@
     <ProjectReference Include="..\Project.Entities\Project.Entities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Images\Cars\" />
+  </ItemGroup>
+
 
 </Project>

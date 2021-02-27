@@ -1,4 +1,4 @@
-﻿using Project.Core.DataAccess.Repositories;
+﻿using Core.DataAccess.Repositories;
 using Project.DataAccess.Abstract.Dals;
 using Project.DataAccess.Concrete.Contexts;
 using Project.Entities.Concrete.Models;

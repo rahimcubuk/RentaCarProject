@@ -1,9 +1,9 @@
 ﻿using Project.Business.Abstract.Services;
 using System.Collections.Generic;
-using Project.Core.Utilities.Results.Abstract;
+using Core.Utilities.Results.Abstract;
 using Project.Entities.Concrete.Models;
 using Project.DataAccess.Abstract.Dals;
-using Project.Core.Utilities.Results.Concrete;
+using Core.Utilities.Results.Concrete;
 using Project.Business.Constants;
 using Project.Entities.Concrete.DTOs;
 using System;

@@ -1,4 +1,4 @@
-﻿namespace Project.Core.Utilities.Results.Abstract
+﻿namespace Core.Utilities.Results.Abstract
 {
     public interface IResult
     {
