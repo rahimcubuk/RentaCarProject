@@ -44,6 +44,11 @@ CarRental Projenizde Core katmanı oluşturunuz.
 * WebAPI katmanını kurunuz.
 * Business katmanındaki tüm servislerin Api karşılığını yazınız.
 
+### Kodlama.io 12. gun odev gereksinimleri
+* Car Rental Projenize Autofac desteği ekleyiniz.
+* Car Rental Projenize FluentValidation desteği ekleyiniz.
+* Car Rental Projenize AOP desteği ekleyiniz.
+* ValidationAspect ekleyiniz.
 
 ### Geliştirme Ortam Bilgileri
 * Geliştirme aşamasında "Microsoft Blend for Visual Studio Community 2019 Version 16.8.5" kullanılmıştır.
