@@ -60,6 +60,9 @@ CarRental Projenizde Core katmanı oluşturunuz.
 * Bir arabaya ait resimleri listeleme imkanı oluşturunuz. (Liste)
 * Eğer bir arabaya ait resim yoksa, default bir resim gösteriniz. Bu resim şirket logonuz olabilir. (Tek elemanlı liste)
 
+### Kodlama.io 14. gun odev gereksinimleri
+* RentACar projenize JWT entegrasyonu yapınız.
+
 ### Geliştirme Ortam Bilgileri
 * Geliştirme aşamasında "Microsoft Blend for Visual Studio Community 2019 Version 16.8.5" kullanılmıştır.
 * Veritabanı olarak MsSQL kullanılmış ve veritabanı ile iletişim "Microsoft.EntityFrameworkCore.SqlServer v3.1.11" ile sağlanmıştır.
