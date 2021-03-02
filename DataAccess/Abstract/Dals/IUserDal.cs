@@ -7,5 +7,6 @@ namespace DataAccess.Abstract.Dals
     public interface IUserDal : IEntityRepository<User>
     {
         List<OperationClaim> GetClaims(User user);
+        void AddUserClaim(UserOperationClaim entity);
     }
 }

@@ -2,6 +2,7 @@
 using Core.Entities.Concrete;
 using DataAccess.Abstract.Dals;
 using DataAccess.Concrete.Contexts;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,6 +10,15 @@ namespace DataAccess.Concrete.EFDals
 {
     public class EfUserDal : EntityRepository<User, EfProjectContext>, IUserDal
     {
+        public void AddUserClaim(UserOperationClaim entity)
+        {
+            using(var context = new EfProjectContext())
+            {
+                context.Entry(entity).State = EntityState.Added;
+                context.SaveChanges();
+            }
+        }
+
         public List<OperationClaim> GetClaims(User user)
         {
             using (var context = new EfProjectContext())

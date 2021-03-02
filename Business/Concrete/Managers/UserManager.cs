@@ -28,10 +28,6 @@ namespace Business.Concrete.Managers
         public IDataResult<User> GetByMail(string email)
         {
             var data = _userDal.Get(u => u.Email == email);
-            if (data == null)
-            {
-                return new ErrorDataResult<User>(Messages.ClaimsNotFound);
-            }
             return new SuccessDataResult<User>(data, Messages.SuccessListed);
         }
 
@@ -75,6 +71,12 @@ namespace Business.Concrete.Managers
         {
             _userDal.Update(entity);
             return new SuccessResult(Messages.SuccessUpdated);
+        }
+
+        public IResult AddUserClaim(UserOperationClaim userOperationClaim)
+        {
+            _userDal.AddUserClaim(userOperationClaim);
+            return new SuccessResult();
         }
 
         #endregion
