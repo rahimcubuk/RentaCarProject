@@ -26,6 +26,14 @@ namespace Project.Business.Constants
         public static string CarIsNotFound = "Fotografi eklenmek istenen arac bulunamadi";
         public static string ImageIsNotFound = "Bu araca ait fotograf bulunamadi.";
 
+        public static string AuthorizationDenied = "Yetkilendirme hatasi.";
+        public static string UserNotFound = "Kullanici bulunamadi.";
+        public static string PasswordError = "Parola hatasi.";
+        public static string SuccessfulLogin = "Giris basarili.";
+        public static string UserAlreadyExists = "Bu kullanici zaten kayitli.";
+        public static string AccessTokenCreated = "Access token olusturuldu.";
+        public static string UserRegistered = "Kullanici kaydedildi";
+
         #endregion
     }
 }

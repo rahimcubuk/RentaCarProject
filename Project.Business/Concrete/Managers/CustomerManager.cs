@@ -44,7 +44,7 @@ namespace Project.Business.Concrete.Managers
 
         public IDataResult<Customer> GetById(int id)
         {
-            var data = _customerDal.GetById(x => x.CustomerId == id);
+            var data = _customerDal.Get(x => x.CustomerId == id);
             if (data == null)
             {
                 return new ErrorDataResult<Customer>(data, Messages.ErrorListed);

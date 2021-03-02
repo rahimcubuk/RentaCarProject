@@ -11,7 +11,7 @@ namespace Core.DataAccess.Repositories
         void Add(TEntity entity);
         void Delete(TEntity entity);
         List<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null);
-        TEntity GetById(Expression<Func<TEntity, bool>> filter);
+        TEntity Get(Expression<Func<TEntity, bool>> filter);
         void Update(TEntity entity);
         int Count();
     }

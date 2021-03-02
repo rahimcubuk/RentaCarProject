@@ -9,6 +9,7 @@ using Core.Utilities.Results.Abstract;
 using Project.Entities.Concrete.DTOs;
 using Core.Aspects.Autofac.Validation;
 using Project.Business.ValidationRules.FluentValidation;
+using Project.Business.BusinessAspects.Autofac;
 
 namespace Project.Business.Concrete.Managers
 {
@@ -23,18 +24,12 @@ namespace Project.Business.Concrete.Managers
         #endregion
 
         #region Business Rule
-       /* private IResult CheckIfCarImageExists(int carId)
-        {
-            int count = _carImageService.GetByCarId(carId).Data.Count;
-            if (count == 0)
-            {
-                _carImageService.Add();
-            }
-        }*/
         #endregion
 
         #region Metotlar
+
         [ValidationAspect(typeof(CarValidator))]
+        [SecuredOperation("admin")]
         public IResult Add(Car entity)
         {
             _carDal.Add(entity);
@@ -47,6 +42,7 @@ namespace Project.Business.Concrete.Managers
             return new SuccessResult(Messages.SuccessDeleted);
         }
 
+        [ValidationAspect(typeof(CarValidator))]
         public IResult Update(Car entity)
         {
             _carDal.Update(entity);
@@ -55,12 +51,13 @@ namespace Project.Business.Concrete.Managers
 
         public IDataResult<Car> GetById(int id)
         {
-            var data = _carDal.GetById(x => x.CarId == id);
+            var data = _carDal.Get(x => x.CarId == id);
             if (data == null)
                 return new ErrorDataResult<Car>(data, Messages.ErrorListed);
             return new SuccessDataResult<Car>(data, Messages.SuccessListed);
         }
 
+        [SecuredOperation("Car.List,admin")]
         public IDataResult<List<Car>> GetAll()
         {
             var data = _carDal.GetAll();

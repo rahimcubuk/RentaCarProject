@@ -1,7 +1,7 @@
-﻿using Project.Business.Abstract.Services;
+﻿using Core.Entities.Concrete;
+using Project.Business.Abstract.Services;
 using Project.Business.Concrete.Managers;
 using Project.DataAccess.Concrete.EFDals;
-using Project.Entities.Concrete.Models;
 using System;
 
 namespace Project.UserInterface.Utilities
@@ -16,8 +16,8 @@ namespace Project.UserInterface.Utilities
             Console.WriteLine("Id - Kullanici Adi - Kullanici SoyAdi - e-mail - sifre");
             foreach (var user in users.Data)
             {
-                Console.WriteLine("{0} - {1} - {2} - {3} - {4}",
-                    user.UserId, user.FirstName, user.LastName, user.EMail, user.Password);
+                Console.WriteLine("{0} - {1} - {2} - {3}",
+                    user.UserId, user.FirstName, user.LastName, user.Email);
             }
         }
 
@@ -36,7 +36,7 @@ namespace Project.UserInterface.Utilities
             Console.WriteLine("-------------------------------------------------------------");
             Console.Write("Silmek istediginiz kullanicinin ID'sini secin: ");
             int Id = Convert.ToInt32(Console.ReadLine());
-            User newUser = new User() {UserId = Id };
+            User newUser = new User() { UserId = Id };
 
             _userManager.Delete(newUser);
             Get();
@@ -67,10 +67,10 @@ namespace Project.UserInterface.Utilities
             newUser.LastName = Console.ReadLine();
 
             Console.Write("Kullanici Maili Giriniz: ");
-            newUser.EMail = Console.ReadLine();
+            newUser.Email = Console.ReadLine();
 
             Console.Write("Kullanici Sifresi Giriniz: ");
-            newUser.Password = Console.ReadLine();
+            var Password = Console.ReadLine();
 
             return newUser;
         }

@@ -49,7 +49,7 @@ namespace Project.Business.Concrete.Managers
 
         public IDataResult<Color> GetById(int id)
         {
-            var data = _colorDal.GetById(x => x.ColorId == id);
+            var data = _colorDal.Get(x => x.ColorId == id);
             if (data == null)
             {
                 return new ErrorDataResult<Color>(data, Messages.ErrorListed);

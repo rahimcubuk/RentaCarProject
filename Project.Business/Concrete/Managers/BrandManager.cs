@@ -49,7 +49,7 @@ namespace Project.Business.Concrete.Managers
 
         public IDataResult<Brand> GetById(int id)
         {
-            var data = _brandDal.GetById(x => x.BrandId == id);
+            var data = _brandDal.Get(x => x.BrandId == id);
             if (data == null)
             {
                 return new ErrorDataResult<Brand>(data, Messages.ErrorListed);

@@ -1,11 +1,11 @@
 ﻿using Core.DataAccess.Repositories;
 using Project.DataAccess.Abstract.Dals;
 using Project.DataAccess.Concrete.Contexts;
+using Project.Entities.Concrete.DTOs;
 using Project.Entities.Concrete.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Project.Entities.Concrete.DTOs;
 using System.Linq.Expressions;
 
 namespace Project.DataAccess.Concrete.EFDals
@@ -24,8 +24,8 @@ namespace Project.DataAccess.Concrete.EFDals
                                CustomerId = c.CustomerId,
                                FirstName = u.FirstName,
                                LastName = u.LastName,
-                               EMail = u.EMail,
-                               Password = u.Password,
+                               EMail = u.Email,
+                               Password = u.PasswordHash,
                                CompanyName = c.CompanyName
                            };
                 #endregion
@@ -47,8 +47,8 @@ namespace Project.DataAccess.Concrete.EFDals
                                CustomerId = c.CustomerId,
                                FirstName = u.FirstName,
                                LastName = u.LastName,
-                               EMail = u.EMail,
-                               Password = u.Password,
+                               EMail = u.Email,
+                               Password = u.PasswordHash,
                                CompanyName = c.CompanyName
                            };
                 #endregion

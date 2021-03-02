@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Project.Business.Abstract.Services;
-using Project.Entities.Concrete.Models;
+using Core.Entities.Concrete;
 
 namespace WebAPI.Controllers
 {

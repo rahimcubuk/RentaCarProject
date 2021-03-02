@@ -107,7 +107,7 @@ namespace Project.Business.Concrete.Managers
 
             if (!(result is null)) return result;
 
-            entity.ImagePath = FileHelper.Update(_imageDal.GetById(p => p.Id == entity.Id).ImagePath, image);
+            entity.ImagePath = FileHelper.Update(_imageDal.Get(p => p.Id == entity.Id).ImagePath, image);
             entity.Date = DateTime.Now;
             _imageDal.Update(entity);
             return new SuccessResult(Messages.SuccessUpdated);
@@ -125,7 +125,7 @@ namespace Project.Business.Concrete.Managers
 
         public IDataResult<CarImage> GetById(int id)
         {
-            var data = _imageDal.GetById(x => x.Id == id);
+            var data = _imageDal.Get(x => x.Id == id);
             if (data == null)
             {
                 return new ErrorDataResult<CarImage>(data, Messages.ErrorListed);

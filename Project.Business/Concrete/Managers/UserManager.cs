@@ -1,10 +1,10 @@
-﻿using Project.Business.Abstract.Services;
-using Project.Business.Constants;
-using Core.Utilities.Results.Abstract;
+﻿using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
+using Project.Business.Abstract.Services;
+using Project.Business.Constants;
 using Project.DataAccess.Abstract.Dals;
-using Project.Entities.Concrete.Models;
 using System.Collections.Generic;
+using Core.Entities.Concrete;
 
 namespace Project.Business.Concrete.Managers
 {
@@ -25,6 +25,16 @@ namespace Project.Business.Concrete.Managers
             return new SuccessResult(Messages.SuccessAdded);
         }
 
+        public User GetByMail(string email)
+        {
+            return _userDal.Get(u => u.Email == email);
+        }
+
+        public List<OperationClaim> GetClaims(User user)
+        {
+            return _userDal.GetClaims(user);
+        }
+
         public IResult Delete(User entity)
         {
             _userDal.Delete(entity);
@@ -43,7 +53,7 @@ namespace Project.Business.Concrete.Managers
 
         public IDataResult<User> GetById(int id)
         {
-            var data = _userDal.GetById(x => x.UserId == id);
+            var data = _userDal.Get(x => x.UserId == id);
             if (data == null)
             {
                 return new ErrorDataResult<User>(data, Messages.ErrorListed);

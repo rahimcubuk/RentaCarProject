@@ -6,6 +6,7 @@ using Project.DataAccess.Concrete.EFDals;
 using Autofac.Extras.DynamicProxy;
 using Castle.DynamicProxy;
 using Core.Utilities.Interceptors;
+using Core.Utilities.Security.JWT;
 
 namespace Project.Business.DependencyResolvers.Autofac
 {
@@ -36,6 +37,11 @@ namespace Project.Business.DependencyResolvers.Autofac
             #region User
             builder.RegisterType<UserManager>().As<IUserService>().SingleInstance();
             builder.RegisterType<EfUserDal>().As<IUserDal>().SingleInstance();
+            #endregion
+
+            #region Auth
+            builder.RegisterType<AuthManager>().As<IAuthService>();
+            builder.RegisterType<JwtHelper>().As<ITokenHelper>();
             #endregion
 
             #region Rental
