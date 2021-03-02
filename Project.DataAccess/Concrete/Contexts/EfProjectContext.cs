@@ -1,8 +1,8 @@
 ﻿using Core.Entities.Concrete;
+using Entities.Concrete.Models;
 using Microsoft.EntityFrameworkCore;
-using Project.Entities.Concrete.Models;
 
-namespace Project.DataAccess.Concrete.Contexts
+namespace DataAccess.Concrete.Contexts
 {
     public class EfProjectContext : DbContext
     {

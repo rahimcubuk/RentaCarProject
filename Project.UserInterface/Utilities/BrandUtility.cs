@@ -1,10 +1,10 @@
-﻿using Project.Business.Abstract.Services;
-using Project.Business.Concrete.Managers;
-using Project.DataAccess.Concrete.EFDals;
-using Project.Entities.Concrete.Models;
+﻿using Business.Abstract.Services;
+using Business.Concrete.Managers;
+using DataAccess.Concrete.EFDals;
+using Entities.Concrete.Models;
 using System;
 
-namespace Project.UserInterface.Utilities
+namespace UserInterface.Utilities
 {
     internal class BrandUtility : Utility
     {

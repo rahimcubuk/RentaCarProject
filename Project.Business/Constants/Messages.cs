@@ -1,4 +1,4 @@
-﻿namespace Project.Business.Constants
+﻿namespace Business.Constants
 {
     public static class Messages
     {

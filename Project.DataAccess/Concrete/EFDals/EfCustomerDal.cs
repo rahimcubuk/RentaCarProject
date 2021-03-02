@@ -1,14 +1,14 @@
 ﻿using Core.DataAccess.Repositories;
-using Project.DataAccess.Abstract.Dals;
-using Project.DataAccess.Concrete.Contexts;
-using Project.Entities.Concrete.DTOs;
-using Project.Entities.Concrete.Models;
+using DataAccess.Abstract.Dals;
+using DataAccess.Concrete.Contexts;
+using Entities.Concrete.DTOs;
+using Entities.Concrete.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace Project.DataAccess.Concrete.EFDals
+namespace DataAccess.Concrete.EFDals
 {
     public class EfCustomerDal : EntityRepository<Customer, EfProjectContext>, ICustomerDal
     {

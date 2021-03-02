@@ -1,12 +1,12 @@
-﻿using Core.Utilities.Results.Abstract;
-using Core.Utilities.Results.Concrete;
-using Project.Business.Abstract.Services;
-using Project.Business.Constants;
-using Project.DataAccess.Abstract.Dals;
-using System.Collections.Generic;
+﻿using Business.Abstract.Services;
+using Business.Constants;
 using Core.Entities.Concrete;
+using Core.Utilities.Results.Abstract;
+using Core.Utilities.Results.Concrete;
+using DataAccess.Abstract.Dals;
+using System.Collections.Generic;
 
-namespace Project.Business.Concrete.Managers
+namespace Business.Concrete.Managers
 {
     public class UserManager : IUserService
     {
@@ -38,7 +38,7 @@ namespace Project.Business.Concrete.Managers
         public IDataResult<List<OperationClaim>> GetClaims(User user)
         {
             var data = _userDal.GetClaims(user);
-            if (data.Count == 0) 
+            if (data.Count == 0)
             {
                 return new ErrorDataResult<List<OperationClaim>>(Messages.ClaimsNotFound);
             }

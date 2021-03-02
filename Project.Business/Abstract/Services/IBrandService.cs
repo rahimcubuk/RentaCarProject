@@ -1,7 +1,7 @@
-﻿using Project.Business.Abstract.Repository;
-using Project.Entities.Concrete.Models;
+﻿using Business.Abstract.Repository;
+using Entities.Concrete.Models;
 
-namespace Project.Business.Abstract.Services
+namespace Business.Abstract.Services
 {
     public interface IBrandService : IServiceRepository<Brand>
     {

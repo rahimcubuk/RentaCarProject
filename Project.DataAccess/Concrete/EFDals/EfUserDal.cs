@@ -1,11 +1,11 @@
 ﻿using Core.DataAccess.Repositories;
 using Core.Entities.Concrete;
-using Project.DataAccess.Abstract.Dals;
-using Project.DataAccess.Concrete.Contexts;
+using DataAccess.Abstract.Dals;
+using DataAccess.Concrete.Contexts;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Project.DataAccess.Concrete.EFDals
+namespace DataAccess.Concrete.EFDals
 {
     public class EfUserDal : EntityRepository<User, EfProjectContext>, IUserDal
     {

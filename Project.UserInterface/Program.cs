@@ -1,15 +1,14 @@
-﻿using Core.Utilities.Helpers;
-using Project.UserInterface.Menu;
-using System;
+﻿using System;
+using UserInterface.Menu;
 
-namespace Project.UserInterface
+namespace UserInterface
 {
     class Program
     {
         static void Main(string[] args)
         {
             Console.WriteLine("Arac Kiralama Uygulamasi");
-            
+
             #region Uygulama Menusu
 
             Console.WriteLine("Arac Menusu icin          : 1");

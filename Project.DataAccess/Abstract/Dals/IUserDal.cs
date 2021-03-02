@@ -2,7 +2,7 @@
 using Core.Entities.Concrete;
 using System.Collections.Generic;
 
-namespace Project.DataAccess.Abstract.Dals
+namespace DataAccess.Abstract.Dals
 {
     public interface IUserDal : IEntityRepository<User>
     {

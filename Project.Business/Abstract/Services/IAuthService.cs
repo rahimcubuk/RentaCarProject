@@ -1,9 +1,9 @@
 ﻿using Core.Entities.Concrete;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Security.JWT;
-using Project.Entities.Concrete.DTOs;
+using Entities.Concrete.DTOs;
 
-namespace Project.Business.Abstract.Services
+namespace Business.Abstract.Services
 {
     public interface IAuthService
     {

@@ -1,17 +1,16 @@
-﻿using Project.Business.Abstract.Services;
-using System.Collections.Generic;
-using Project.Entities.Concrete.Models;
-using Project.DataAccess.Abstract.Dals;
-using System;
-using Project.Business.Constants;
-using Core.Utilities.Results.Concrete;
-using Core.Utilities.Results.Abstract;
-using Project.Entities.Concrete.DTOs;
+﻿using Business.Abstract.Services;
+using Business.BusinessAspects.Autofac;
+using Business.Constants;
+using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
-using Project.Business.ValidationRules.FluentValidation;
-using Project.Business.BusinessAspects.Autofac;
+using Core.Utilities.Results.Abstract;
+using Core.Utilities.Results.Concrete;
+using DataAccess.Abstract.Dals;
+using Entities.Concrete.DTOs;
+using Entities.Concrete.Models;
+using System.Collections.Generic;
 
-namespace Project.Business.Concrete.Managers
+namespace Business.Concrete.Managers
 {
     public class CarManager : ICarService
     {

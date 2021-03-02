@@ -1,9 +1,9 @@
 ﻿using Core.DataAccess.Repositories;
-using Project.DataAccess.Abstract.Dals;
-using Project.DataAccess.Concrete.Contexts;
-using Project.Entities.Concrete.Models;
+using DataAccess.Abstract.Dals;
+using DataAccess.Concrete.Contexts;
+using Entities.Concrete.Models;
 
-namespace Project.DataAccess.Concrete.EFDals
+namespace DataAccess.Concrete.EFDals
 {
     public class EfCarImageDal : EntityRepository<CarImage, EfProjectContext>, ICarImageDal
     {

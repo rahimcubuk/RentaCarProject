@@ -1,13 +1,13 @@
-﻿using Core.Entities.Concrete;
+﻿using Business.Abstract.Services;
+using Business.Constants;
+using Core.Entities.Concrete;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using Core.Utilities.Security.Hashing;
 using Core.Utilities.Security.JWT;
-using Project.Business.Abstract.Services;
-using Project.Business.Constants;
-using Project.Entities.Concrete.DTOs;
+using Entities.Concrete.DTOs;
 
-namespace Project.Business.Concrete.Managers
+namespace Business.Concrete.Managers
 {
     public class AuthManager : IAuthService
     {
@@ -39,7 +39,7 @@ namespace Project.Business.Concrete.Managers
 
         public IDataResult<User> Login(UserForLoginDto userForLoginDto)
         {
-            var userToCheck = _userService.GetByMail(userForLoginDto.Email);
+            var userToCheck = _userService.GetByMail(userForLoginDto.Email).Data;
             if (userToCheck == null)
             {
                 return new ErrorDataResult<User>(Messages.UserNotFound);
@@ -64,7 +64,7 @@ namespace Project.Business.Concrete.Managers
 
         public IDataResult<AccessToken> CreateAccessToken(User user)
         {
-            var claims = _userService.GetClaims(user);
+            var claims = _userService.GetClaims(user).Data;
             var accessToken = _tokenHelper.CreateToken(user, claims);
             return new SuccessDataResult<AccessToken>(accessToken, Messages.AccessTokenCreated);
         }

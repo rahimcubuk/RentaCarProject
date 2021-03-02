@@ -1,10 +1,10 @@
-﻿using Project.Business.Abstract.Services;
-using Project.Business.Concrete.Managers;
-using Project.DataAccess.Concrete.EFDals;
-using Project.Entities.Concrete.Models;
+﻿using Business.Abstract.Services;
+using Business.Concrete.Managers;
+using DataAccess.Concrete.EFDals;
+using Entities.Concrete.Models;
 using System;
 
-namespace Project.UserInterface.Utilities
+namespace UserInterface.Utilities
 {
     internal class RentalUtility : Utility
     {
@@ -19,8 +19,8 @@ namespace Project.UserInterface.Utilities
             Console.WriteLine("Id - M. Adi - Arac Adi - Kiralama Tarihi - Iade Tarihi");
             foreach (var rent in rents.Data)
             {
-                Console.WriteLine("{0} - {1} - {2} - {3} - {4}", 
-                    rent.Id,rent.CustomerName,rent.CarName,rent.RentDate,rent.ReturnDate);
+                Console.WriteLine("{0} - {1} - {2} - {3} - {4}",
+                    rent.Id, rent.CustomerName, rent.CarName, rent.RentDate, rent.ReturnDate);
             }
         }
 
@@ -76,7 +76,7 @@ namespace Project.UserInterface.Utilities
 
             Console.Write("Iyade Tarihi Giriniz: ");
             string returnDate = Console.ReadLine();
-            if(returnDate != "") newRent.ReturnDate = Convert.ToDateTime(returnDate);
+            if (returnDate != "") newRent.ReturnDate = Convert.ToDateTime(returnDate);
 
             return newRent;
         }

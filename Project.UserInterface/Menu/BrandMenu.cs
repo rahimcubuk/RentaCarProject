@@ -1,7 +1,7 @@
-﻿using Project.UserInterface.Utilities;
+﻿using UserInterface.Utilities;
 using System;
 
-namespace Project.UserInterface.Menu
+namespace UserInterface.Menu
 {
     internal static class BrandMenu
     {

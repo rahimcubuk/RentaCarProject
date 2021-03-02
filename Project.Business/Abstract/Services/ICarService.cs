@@ -1,11 +1,10 @@
-﻿using Project.Business.Abstract.Repository;
+﻿using Business.Abstract.Repository;
 using Core.Utilities.Results.Abstract;
-using Core.Utilities.Results.Concrete;
-using Project.Entities.Concrete.DTOs;
-using Project.Entities.Concrete.Models;
+using Entities.Concrete.DTOs;
+using Entities.Concrete.Models;
 using System.Collections.Generic;
 
-namespace Project.Business.Abstract.Services
+namespace Business.Abstract.Services
 {
     public interface ICarService : IServiceRepository<Car>
     {

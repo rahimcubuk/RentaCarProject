@@ -1,13 +1,13 @@
-﻿using Project.Business.Abstract.Services;
-using Project.Business.Constants;
+﻿using Business.Abstract.Services;
+using Business.Constants;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
-using Project.DataAccess.Abstract.Dals;
-using Project.Entities.Concrete.Models;
+using DataAccess.Abstract.Dals;
+using Entities.Concrete.DTOs;
+using Entities.Concrete.Models;
 using System.Collections.Generic;
-using Project.Entities.Concrete.DTOs;
 
-namespace Project.Business.Concrete.Managers
+namespace Business.Concrete.Managers
 {
     public class CustomerManager : ICustomerService
     {

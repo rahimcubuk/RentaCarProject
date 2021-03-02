@@ -1,9 +1,8 @@
 ﻿using Core.Entities;
 using Core.Utilities.Results.Abstract;
-using Core.Utilities.Results.Concrete;
 using System.Collections.Generic;
 
-namespace Project.Business.Abstract.Repository
+namespace Business.Abstract.Repository
 {
     public interface IServiceRepository<TEntity> where TEntity : class, IEntity, new()
     {

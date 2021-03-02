@@ -1,14 +1,13 @@
-﻿using Project.Business.Abstract.Services;
-using System.Collections.Generic;
+﻿using Business.Abstract.Services;
+using Business.Constants;
 using Core.Utilities.Results.Abstract;
-using Project.Entities.Concrete.Models;
-using Project.DataAccess.Abstract.Dals;
 using Core.Utilities.Results.Concrete;
-using Project.Business.Constants;
-using Project.Entities.Concrete.DTOs;
-using System;
+using DataAccess.Abstract.Dals;
+using Entities.Concrete.DTOs;
+using Entities.Concrete.Models;
+using System.Collections.Generic;
 
-namespace Project.Business.Concrete.Managers
+namespace Business.Concrete.Managers
 {
     public class RentalManager : IRentalService
     {

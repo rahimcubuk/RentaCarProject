@@ -1,10 +1,10 @@
-﻿using Core.Entities.Concrete;
-using Project.Business.Abstract.Services;
-using Project.Business.Concrete.Managers;
-using Project.DataAccess.Concrete.EFDals;
+﻿using Business.Abstract.Services;
+using Business.Concrete.Managers;
+using Core.Entities.Concrete;
+using DataAccess.Concrete.EFDals;
 using System;
 
-namespace Project.UserInterface.Utilities
+namespace UserInterface.Utilities
 {
     class UserUtility : Utility
     {

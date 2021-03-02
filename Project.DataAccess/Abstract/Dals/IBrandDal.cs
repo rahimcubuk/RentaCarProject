@@ -1,7 +1,7 @@
 ﻿using Core.DataAccess.Repositories;
-using Project.Entities.Concrete.Models;
+using Entities.Concrete.Models;
 
-namespace Project.DataAccess.Abstract.Dals
+namespace DataAccess.Abstract.Dals
 {
     public interface IBrandDal : IEntityRepository<Brand>
     {

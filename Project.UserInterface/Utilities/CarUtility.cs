@@ -1,12 +1,12 @@
-﻿using Project.Business.Abstract.Services;
-using Project.Business.Concrete.Managers;
-using Project.DataAccess.Concrete.EFDals;
-using Project.Entities.Concrete.DTOs;
-using Project.Entities.Concrete.Models;
+﻿using Business.Abstract.Services;
+using Business.Concrete.Managers;
+using DataAccess.Concrete.EFDals;
+using Entities.Concrete.DTOs;
+using Entities.Concrete.Models;
 using System;
 using System.Collections.Generic;
 
-namespace Project.UserInterface.Utilities
+namespace UserInterface.Utilities
 {
     internal class CarUtility : Utility
     {
@@ -48,7 +48,7 @@ namespace Project.UserInterface.Utilities
             _carManager.Add(car);
             Get();
         }
-        
+
         public override void Get()
         {
             Console.WriteLine("-------------------------------------------------------------");
@@ -118,7 +118,7 @@ namespace Project.UserInterface.Utilities
                 foreach (var car in cars)
                 {
                     Console.WriteLine("{0} - {1} - {2}  -  {3}  -  {4}  -  {5}   -   {6}",
-                            car.CarId, car.CarName, car.BrandName, car.ColorName, 
+                            car.CarId, car.CarName, car.BrandName, car.ColorName,
                             car.ModelYear, car.DailyPrice, car.Description);
                 }
             }

@@ -1,10 +1,7 @@
-﻿using FluentValidation;
-using Project.Entities.Concrete.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Entities.Concrete.Models;
+using FluentValidation;
 
-namespace Project.Business.ValidationRules.FluentValidation
+namespace Business.ValidationRules.FluentValidation
 {
     public class CarValidator : AbstractValidator<Car>
     {

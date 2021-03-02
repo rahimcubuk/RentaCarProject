@@ -1,7 +1,7 @@
 ﻿using Core.Entities;
 using System;
 
-namespace Project.Entities.Concrete.Models
+namespace Entities.Concrete.Models
 {
     public class Rental : IEntity
     {

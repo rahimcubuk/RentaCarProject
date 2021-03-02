@@ -1,14 +1,14 @@
 ﻿using Autofac;
-using Project.Business.Abstract.Services;
-using Project.Business.Concrete.Managers;
-using Project.DataAccess.Abstract.Dals;
-using Project.DataAccess.Concrete.EFDals;
 using Autofac.Extras.DynamicProxy;
+using Business.Abstract.Services;
+using Business.Concrete.Managers;
 using Castle.DynamicProxy;
 using Core.Utilities.Interceptors;
 using Core.Utilities.Security.JWT;
+using DataAccess.Abstract.Dals;
+using DataAccess.Concrete.EFDals;
 
-namespace Project.Business.DependencyResolvers.Autofac
+namespace Business.DependencyResolvers.Autofac
 {
     public class AutofacBusinessModele : Module
     {

@@ -1,6 +1,6 @@
 ﻿using Core.Entities;
 
-namespace Project.Entities.Concrete.Models
+namespace Entities.Concrete.Models
 {
     public class Car : IEntity
     {

@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Business.Abstract.Services;
+using Entities.Concrete.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Project.Business.Abstract.Services;
-using Project.Entities.Concrete.Models;
-using System;
 
 namespace WebAPI.Controllers
 {

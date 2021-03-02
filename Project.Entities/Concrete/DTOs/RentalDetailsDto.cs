@@ -1,7 +1,7 @@
 ﻿using Core.Entities;
 using System;
 
-namespace Project.Entities.Concrete.DTOs
+namespace Entities.Concrete.DTOs
 {
     public class RentalDetailsDto : IDto
     {

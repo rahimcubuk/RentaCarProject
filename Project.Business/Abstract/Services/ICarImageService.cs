@@ -1,10 +1,9 @@
 ﻿using Core.Utilities.Results.Abstract;
+using Entities.Concrete.Models;
 using Microsoft.AspNetCore.Http;
-using Project.Business.Abstract.Repository;
-using Project.Entities.Concrete.Models;
 using System.Collections.Generic;
 
-namespace Project.Business.Abstract.Services
+namespace Business.Abstract.Services
 {
     public interface ICarImageService// : IServiceRepository<CarImage>
     {
