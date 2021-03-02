@@ -25,14 +25,24 @@ namespace Project.Business.Concrete.Managers
             return new SuccessResult(Messages.SuccessAdded);
         }
 
-        public User GetByMail(string email)
+        public IDataResult<User> GetByMail(string email)
         {
-            return _userDal.Get(u => u.Email == email);
+            var data = _userDal.Get(u => u.Email == email);
+            if (data == null)
+            {
+                return new ErrorDataResult<User>(Messages.ClaimsNotFound);
+            }
+            return new SuccessDataResult<User>(data, Messages.SuccessListed);
         }
 
-        public List<OperationClaim> GetClaims(User user)
+        public IDataResult<List<OperationClaim>> GetClaims(User user)
         {
-            return _userDal.GetClaims(user);
+            var data = _userDal.GetClaims(user);
+            if (data.Count == 0) 
+            {
+                return new ErrorDataResult<List<OperationClaim>>(Messages.ClaimsNotFound);
+            }
+            return new SuccessDataResult<List<OperationClaim>>(data, Messages.SuccessListed);
         }
 
         public IResult Delete(User entity)

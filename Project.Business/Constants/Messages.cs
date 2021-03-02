@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Project.Business.Constants
+﻿namespace Project.Business.Constants
 {
     public static class Messages
     {
@@ -33,6 +27,7 @@ namespace Project.Business.Constants
         public static string UserAlreadyExists = "Bu kullanici zaten kayitli.";
         public static string AccessTokenCreated = "Access token olusturuldu.";
         public static string UserRegistered = "Kullanici kaydedildi";
+        public static string ClaimsNotFound = "Aranan nitelikte kayit bulunamadi.";
 
         #endregion
     }
