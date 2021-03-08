@@ -2,6 +2,8 @@
 using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Performance;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
@@ -57,6 +59,8 @@ namespace Business.Concrete.Managers
         }
 
         [SecuredOperation("Car.List,admin")]
+        [PerformanceAspect(5)]
+        [CacheAspect(duration: 10)]
         public IDataResult<List<Car>> GetAll()
         {
             var data = _carDal.GetAll();
@@ -87,6 +91,10 @@ namespace Business.Concrete.Managers
             return new SuccessDataResult<List<Car>>(data, Messages.SuccessListed);
         }
 
+
+        [SecuredOperation("Car.List,admin")]
+        [PerformanceAspect(5)]
+        [CacheAspect(duration: 10)]
         public IDataResult<List<CarDetailsDto>> GetCarsDetails()
         {
             var data = _carDal.GetAllCarDetails();
