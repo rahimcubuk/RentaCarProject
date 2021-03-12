@@ -10,6 +10,7 @@ namespace Entities.Concrete.DTOs
         public string CarName { get; set; }
         public string ModelYear { get; set; }
         public decimal DailyPrice { get; set; }
+        public string ImagePath { get; set; }
         public string Description { get; set; }
     }
 }

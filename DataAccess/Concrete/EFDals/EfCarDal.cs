@@ -17,43 +17,39 @@ namespace DataAccess.Concrete.EFDals
             using (EfProjectContext context = new EfProjectContext())
             {
                 #region Data
-                var data = from car in context.Cars
-                           join bra in context.Brands on car.BrandId equals bra.BrandId
-                           join col in context.Colors on car.ColorId equals col.ColorId
-                           select new CarDetailsDto
-                           {
-                               CarId = car.CarId,
-                               CarName = car.CarName,
-                               BrandName = bra.BrandName,
-                               ColorName = col.ColorName,
-                               DailyPrice = car.DailyPrice,
-                               ModelYear = car.ModelYear,
-                               Description = car.Description
-                           };
+                IQueryable<CarDetailsDto> data = createData(context);
                 #endregion
 
                 return (filter == null ? data.ToList() :
                                      data.Where(filter).ToList());
             }
         }
+
+        private static IQueryable<CarDetailsDto> createData(EfProjectContext context)
+        {
+            return from car in context.Cars
+                   join img in context.CarImages on car.CarId equals img.CarId
+                   join bra in context.Brands on car.BrandId equals bra.BrandId
+                   join col in context.Colors on car.ColorId equals col.ColorId
+                   select new CarDetailsDto
+                   {
+                       CarId = car.CarId,
+                       CarName = car.CarName,
+                       BrandName = bra.BrandName,
+                       ColorName = col.ColorName,
+                       DailyPrice = car.DailyPrice,
+                       ModelYear = car.ModelYear,
+                       Description = car.Description,
+                       ImagePath = img.ImagePath
+                   };
+        }
+
         public CarDetailsDto GetCarDetailsById(Expression<Func<CarDetailsDto, bool>> filter)
         {
             using (EfProjectContext context = new EfProjectContext())
             {
                 #region Data
-                var data = from car in context.Cars
-                           join bra in context.Brands on car.BrandId equals bra.BrandId
-                           join col in context.Colors on car.ColorId equals col.ColorId
-                           select new CarDetailsDto
-                           {
-                               CarId = car.CarId,
-                               CarName = car.CarName,
-                               BrandName = bra.BrandName,
-                               ColorName = col.ColorName,
-                               DailyPrice = car.DailyPrice,
-                               ModelYear = car.ModelYear,
-                               Description = car.Description
-                           };
+                IQueryable<CarDetailsDto> data = createData(context);
                 #endregion
 
                 return data.FirstOrDefault(filter);

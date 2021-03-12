@@ -94,7 +94,7 @@ namespace Business.Concrete.Managers
         }
 
 
-        [SecuredOperation("Car.List,admin")]
+        //[SecuredOperation("Car.List,admin")]
         [PerformanceAspect(5)]
         [CacheAspect(duration: 10)]
         public IDataResult<List<CarDetailsDto>> GetCarsDetails()

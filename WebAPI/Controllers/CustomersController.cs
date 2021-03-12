@@ -23,7 +23,7 @@ namespace WebAPI.Controllers
         [Route("list")]
         public IActionResult Get()
         {
-            var result = _customerManager.GetAll();
+            var result = _customerManager.GetCustomersDetails();
 
             if (result.Success) return Ok(result);
             return BadRequest(result);

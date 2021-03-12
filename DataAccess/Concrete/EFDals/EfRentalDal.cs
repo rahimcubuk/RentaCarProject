@@ -17,18 +17,7 @@ namespace DataAccess.Concrete.EFDals
             using (EfProjectContext context = new EfProjectContext())
             {
                 #region Data
-                var data = from rent in context.Rentals
-                           join car in context.Cars on rent.CarId equals car.CarId
-                           join cus in context.Customers on rent.CustomerId equals cus.CustomerId
-                           join usr in context.Users on cus.UserId equals usr.UserId
-                           select new RentalDetailsDto
-                           {
-                               Id = rent.Id,
-                               CarName = car.CarName,
-                               CustomerName = usr.FirstName,
-                               RentDate = rent.RentDate,
-                               ReturnDate = rent.ReturnDate
-                           };
+                IQueryable<RentalDetailsDto> data = CreateData(context);
                 #endregion
 
                 return (filter == null ? data.ToList() :
@@ -41,22 +30,29 @@ namespace DataAccess.Concrete.EFDals
             using (EfProjectContext context = new EfProjectContext())
             {
                 #region Data
-                var data = from rent in context.Rentals
-                           join car in context.Cars on rent.CarId equals car.CarId
-                           join cus in context.Customers on rent.CustomerId equals cus.CustomerId
-                           join usr in context.Users on cus.UserId equals usr.UserId
-                           select new RentalDetailsDto
-                           {
-                               Id = rent.Id,
-                               CarName = car.CarName,
-                               CustomerName = usr.FirstName,
-                               RentDate = rent.RentDate,
-                               ReturnDate = rent.ReturnDate
-                           };
+                IQueryable<RentalDetailsDto> data = CreateData(context);
                 #endregion
 
                 return data.FirstOrDefault(filter);
             }
+        }
+
+        private static IQueryable<RentalDetailsDto> CreateData(EfProjectContext context)
+        {
+            return from rent in context.Rentals
+                   join car in context.Cars on rent.CarId equals car.CarId
+                   join bra in context.Brands on car.BrandId equals bra.BrandId
+                   join cus in context.Customers on rent.CustomerId equals cus.CustomerId
+                   join usr in context.Users on cus.UserId equals usr.UserId
+                   select new RentalDetailsDto
+                   {
+                       Id = rent.Id,
+                       CarName = bra.BrandName,
+                       CustomerFirstName = usr.FirstName,
+                       CustomerLastName = usr.LastName,
+                       RentDate = rent.RentDate,
+                       ReturnDate = rent.ReturnDate
+                   };
         }
     }
 }

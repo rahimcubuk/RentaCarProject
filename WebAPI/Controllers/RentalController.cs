@@ -23,7 +23,7 @@ namespace WebAPI.Controllers
         [Route("list")]
         public IActionResult Get()
         {
-            var result = _rentalManager.GetAll();
+            var result = _rentalManager.GetRentalDetails();
 
             if (result.Success) return Ok(result);
             return BadRequest(result);
