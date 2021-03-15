@@ -10,10 +10,14 @@ namespace WebAPI.Controllers
     {
         #region Constructor Method
         ICarService _carManager;
+        IColorService _colorService;
+        IBrandService _brandService;
 
-        public CarsController(ICarService carManager)
+        public CarsController(ICarService carManager, IBrandService brandService, IColorService colorService)
         {
             _carManager = carManager;
+            _colorService = colorService;
+            _brandService = brandService;
         }
         #endregion
 
@@ -23,6 +27,16 @@ namespace WebAPI.Controllers
         [Route("list")]
         public IActionResult Get()
         {
+            var result = _carManager.GetAll();
+
+            if (result.Success) return Ok(result);
+            return BadRequest(result);
+        }
+
+        [HttpGet]
+        [Route("listdetails")]
+        public IActionResult GetDetails()
+        {
             var result = _carManager.GetCarsDetails();
 
             if (result.Success) return Ok(result);
@@ -30,7 +44,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("list/{id}")]
+        [Route("details/{id}")]
         public IActionResult Get(int id)
         {
             var result = _carManager.GetCarDetailById(id);
@@ -43,7 +57,7 @@ namespace WebAPI.Controllers
         [Route("listbycolor/{colorid}")]
         public IActionResult GetByColor(int colorid)
         {
-            var result = _carManager.GetCarsByColorId(colorid);
+            var result = _carManager.GetCarsByColor(_colorService.GetById(colorid).Data.ColorName);
 
             if (result.Success) return Ok(result);
             return BadRequest(result);
@@ -53,7 +67,7 @@ namespace WebAPI.Controllers
         [Route("listbybrand/{brandid}")]
         public IActionResult GetByBrand(int brandid)
         {
-            var result = _carManager.GetCarsByBrandId(brandid);
+            var result = _carManager.GetCarsByBrand(_brandService.GetById(brandid).Data.BrandName);
 
             if (result.Success) return Ok(result);
             return BadRequest(result);

@@ -17,7 +17,7 @@ namespace Core.Utilities.Helpers
                 }
             }
             var result = NewPath(file);
-            File.Move(sourcePath, result);
+            File.Move(sourcePath, $@"{Environment.CurrentDirectory + @"\Images\Cars\"}"+result);
             return result;
         }
 
@@ -45,9 +45,11 @@ namespace Core.Utilities.Helpers
             FileInfo fileInfo = new FileInfo(file.FileName);
             string fileExtension = fileInfo.Extension;
 
-            string result = $@"{Environment.CurrentDirectory + @"\Images\Cars"}\{Guid.NewGuid().ToString() + fileExtension}";
+            //string result = $@"{Environment.CurrentDirectory + @"\Images\Cars"}\{Guid.NewGuid().ToString() + fileExtension}";
+            string result = $@"{Guid.NewGuid().ToString() + fileExtension}";
             return result;
         }
+
         public static string NewPath()
         {
             string result = $@"{Environment.CurrentDirectory + @"\Images\Cars"}\{"logo.png"}";

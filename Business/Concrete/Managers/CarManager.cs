@@ -60,7 +60,7 @@ namespace Business.Concrete.Managers
             return new SuccessDataResult<Car>(data, Messages.SuccessListed);
         }
 
-        [SecuredOperation("Car.List,admin")]
+        //[SecuredOperation("Car.List,admin")]
         [PerformanceAspect(5)]
         [CacheAspect(duration: 10)]
         public IDataResult<List<Car>> GetAll()
@@ -73,24 +73,24 @@ namespace Business.Concrete.Managers
             return new SuccessDataResult<List<Car>>(data, Messages.SuccessListed);
         }
 
-        public IDataResult<List<Car>> GetCarsByBrandId(int id)
+        public IDataResult<List<CarDetailsDto>> GetCarsByBrand(string brand)
         {
-            var data = _carDal.GetAll(x => x.BrandId == id);
+            var data = _carDal.GetAllCarDetails(x => x.BrandName == brand);
             if (data == null)
             {
-                return new ErrorDataResult<List<Car>>(data, Messages.ErrorListed);
+                return new ErrorDataResult<List<CarDetailsDto>>(data, Messages.ErrorListed);
             }
-            return new SuccessDataResult<List<Car>>(data, Messages.SuccessListed);
+            return new SuccessDataResult<List<CarDetailsDto>>(data, Messages.SuccessListed);
         }
 
-        public IDataResult<List<Car>> GetCarsByColorId(int id)
+        public IDataResult<List<CarDetailsDto>> GetCarsByColor(string color)
         {
-            var data = _carDal.GetAll(x => x.ColorId == id);
+            var data = _carDal.GetAllCarDetails(x => x.ColorName == color);
             if (data == null)
             {
-                return new ErrorDataResult<List<Car>>(data, Messages.ErrorListed);
+                return new ErrorDataResult<List<CarDetailsDto>>(data, Messages.ErrorListed);
             }
-            return new SuccessDataResult<List<Car>>(data, Messages.SuccessListed);
+            return new SuccessDataResult<List<CarDetailsDto>>(data, Messages.SuccessListed);
         }
 
 

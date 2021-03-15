@@ -40,7 +40,7 @@ namespace Business.Concrete.Managers
         private IResult CheckIfCarImageExists(int carId)
         {
             var result = BusinessRules.Run(CheckIfCarExists(carId));
-            if (!result.Success) return new ErrorResult(Messages.CarIsNotFound);
+            if (!(result is null)) return new ErrorResult(Messages.CarIsNotFound);
 
             var data = _imageDal.GetAll(i => i.CarId == carId).Count;
             if (data == 0)

@@ -28,7 +28,6 @@ namespace DataAccess.Concrete.EFDals
         private static IQueryable<CarDetailsDto> createData(EfProjectContext context)
         {
             return from car in context.Cars
-                   join img in context.CarImages on car.CarId equals img.CarId
                    join bra in context.Brands on car.BrandId equals bra.BrandId
                    join col in context.Colors on car.ColorId equals col.ColorId
                    select new CarDetailsDto
@@ -40,7 +39,6 @@ namespace DataAccess.Concrete.EFDals
                        DailyPrice = car.DailyPrice,
                        ModelYear = car.ModelYear,
                        Description = car.Description,
-                       ImagePath = img.ImagePath
                    };
         }
 
