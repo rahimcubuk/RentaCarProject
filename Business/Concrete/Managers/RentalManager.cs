@@ -1,5 +1,6 @@
 ﻿using Business.Abstract.Services;
 using Business.Constants;
+using Core.Aspects.Autofac.Transaction;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract.Dals;
@@ -13,9 +14,11 @@ namespace Business.Concrete.Managers
     {
         #region Kurucu Metot
         private IRentalDal _rentalDal;
-        public RentalManager(IRentalDal rentalDal)
+        private IPaymentService _paymentService;
+        public RentalManager(IRentalDal rentalDal, IPaymentService paymentService)
         {
             _rentalDal = rentalDal;
+            _paymentService = paymentService;
         }
         #endregion
 

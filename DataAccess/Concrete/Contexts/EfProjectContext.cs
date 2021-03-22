@@ -19,5 +19,7 @@ namespace DataAccess.Concrete.Contexts
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
         public DbSet<Rental> Rentals { get; set; }
         public DbSet<CarImage> CarImages { get; set; }
+        public DbSet<FakeCreditCard> FakeCreditCards { get; set; }
+        public DbSet<Payment> Payments { get; set; }
     }
 }
