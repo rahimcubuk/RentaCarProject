@@ -30,6 +30,10 @@
         public static string ClaimsNotFound = "Aranan nitelikte kayit bulunamadi.";
         public static string ClaimAdded = "Claim Eklendi";
 
+
+        public static string NotFoundCreditCard = "Kredi Karti bulunamadi";
+        public static string SuccessPay = "Odeme Basarili";
+
         #endregion
     }
 }

@@ -14,11 +14,9 @@ namespace Business.Concrete.Managers
     {
         #region Kurucu Metot
         private IRentalDal _rentalDal;
-        private IPaymentService _paymentService;
-        public RentalManager(IRentalDal rentalDal, IPaymentService paymentService)
+        public RentalManager(IRentalDal rentalDal)
         {
             _rentalDal = rentalDal;
-            _paymentService = paymentService;
         }
         #endregion
 

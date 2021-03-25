@@ -76,9 +76,9 @@ namespace UserInterface.Utilities
 
             Console.WriteLine("-------------------------------------------------------------");
             Console.Write("Aracin renk numarasini secin: ");
-            int id = Convert.ToInt32(Console.ReadLine());
+            //int id = Convert.ToInt32(Console.ReadLine());
 
-            var cars = _carManager.GetCarsByColorId(id);
+            var cars = _carManager.GetCarsByColor(Console.ReadLine());
             ListCar(cars.Data);
         }
 
@@ -88,9 +88,9 @@ namespace UserInterface.Utilities
 
             Console.WriteLine("-------------------------------------------------------------");
             Console.Write("Aracin Model numarasini secin: ");
-            int id = Convert.ToInt32(Console.ReadLine());
+            //int id = Convert.ToInt32(Console.ReadLine());
 
-            var cars = _carManager.GetCarsByBrandId(id);
+            var cars = _carManager.GetCarsByBrand(Console.ReadLine());
             ListCar(cars.Data);
         }
 

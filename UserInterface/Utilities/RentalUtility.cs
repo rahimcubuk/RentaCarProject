@@ -20,7 +20,7 @@ namespace UserInterface.Utilities
             foreach (var rent in rents.Data)
             {
                 Console.WriteLine("{0} - {1} - {2} - {3} - {4}",
-                    rent.Id, rent.CustomerName, rent.CarName, rent.RentDate, rent.ReturnDate);
+                    rent.Id, rent.CustomerFirstName, rent.CarName, rent.RentDate, rent.ReturnDate);
             }
         }
 

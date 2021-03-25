@@ -8,6 +8,5 @@ namespace DataAccess.Abstract.Dals
 {
     public interface IFakeCreditCardDal : IEntityRepository<FakeCreditCard>
     {
-        FakeCreditCard GetCardByCardNumber(Expression<Func<FakeCreditCard, bool>> filter);
     }
 }

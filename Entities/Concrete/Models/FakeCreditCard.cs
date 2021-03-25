@@ -9,7 +9,8 @@ namespace Entities.Concrete.Models
         public string NameOnTheCard { get; set; }
         public string CardNumber { get; set; }
         public string CardCvv { get; set; }
-        public DateTime ExpirationDate { get; set; }
+        public int ExpirationMonth { get; set; }
+        public int ExpirationYear { get; set; }
         public decimal TotalMoney { get; set; }
     }
 }

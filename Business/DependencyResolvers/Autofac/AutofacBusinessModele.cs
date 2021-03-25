@@ -54,6 +54,16 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<EfCarImageDal>().As<ICarImageDal>().SingleInstance();
             #endregion
 
+            #region Payments
+            builder.RegisterType<PaymentManager>().As<IPaymentService>().SingleInstance();
+            builder.RegisterType<EFPaymentDal>().As<IPaymentDal>().SingleInstance();
+            #endregion
+
+            #region FakeBank
+            builder.RegisterType<FakeCreditCardManager>().As<IFakeCardService>().SingleInstance();
+            builder.RegisterType<EfFakeCreditCardDal>().As<IFakeCreditCardDal>().SingleInstance();
+            #endregion
+
             #region Core.Aspect
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
             builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
