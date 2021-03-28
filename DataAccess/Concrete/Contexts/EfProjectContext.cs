@@ -21,5 +21,6 @@ namespace DataAccess.Concrete.Contexts
         public DbSet<CarImage> CarImages { get; set; }
         public DbSet<FakeCreditCard> FakeCreditCards { get; set; }
         public DbSet<Payment> Payments { get; set; }
+        public DbSet<UserFindexPoint> UserFindexPoints { get; set; }
     }
 }

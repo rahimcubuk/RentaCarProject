@@ -33,6 +33,7 @@
 
         public static string NotFoundCreditCard = "Kredi Karti bulunamadi";
         public static string SuccessPay = "Odeme Basarili";
+        public static string InsufficientBalance = "Yetersiz Bakiye";
 
         #endregion
     }

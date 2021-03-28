@@ -52,13 +52,12 @@ namespace Business.Concrete.Managers
             return new SuccessDataResult<FakeCreditCard>(data, Messages.SuccessListed);
         }
 
-        public IDataResult<FakeCreditCard> GetCardByCardNumber(string cardNumber)
+        public IDataResult<FakeCreditCard> CheckCard(FakeCreditCard card, decimal price)
         {
-            var data = _cardDal.Get(x => x.CardNumber == cardNumber);
-            if (data == null)
-            {
-                return new ErrorDataResult<FakeCreditCard>(data, Messages.NotFoundCreditCard);
-            }
+            var data = _cardDal.Get(x => x.CardNumber == card.CardNumber && x.CardCvv == card.CardCvv && x.NameOnTheCard == card.NameOnTheCard);
+            
+            if (data == null) return new ErrorDataResult<FakeCreditCard>(data, Messages.NotFoundCreditCard);
+            else if(data.TotalMoney < price) return new ErrorDataResult<FakeCreditCard>(data, Messages.InsufficientBalance);
             return new SuccessDataResult<FakeCreditCard>(data, Messages.SuccessListed);
         }
 

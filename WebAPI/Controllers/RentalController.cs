@@ -39,6 +39,16 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+        [HttpGet]
+        [Route("check/{carId}")]
+        public IActionResult RentCheck(int carId)
+        {
+            var result = _rentalManager.GetByCarId(carId);
+
+            if (result.Success) return Ok(result);
+            return BadRequest(result);
+        }
+
         [HttpPost]
         [Route("delete")]
         public IActionResult Delete(Rental rent)

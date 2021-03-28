@@ -37,6 +37,15 @@ namespace DataAccess.Concrete.EFDals
             }
         }
 
+        public Rental GetByCarId(Expression<Func<Rental, bool>> filter)
+        {
+            using (EfProjectContext context = new EfProjectContext())
+            {
+                var data = context.Rentals.Where(filter).ToList().LastOrDefault();
+                return data;
+            }
+        }
+
         private static IQueryable<RentalDetailsDto> CreateData(EfProjectContext context)
         {
             return from rent in context.Rentals

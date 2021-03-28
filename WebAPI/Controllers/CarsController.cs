@@ -44,6 +44,16 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
+        [Route("{id}")]
+        public IActionResult GetById(int id)
+        {
+            var result = _carManager.GetById(id);
+
+            if (result.Success) return Ok(result);
+            return BadRequest(result);
+        }
+
+        [HttpGet]
         [Route("details/{id}")]
         public IActionResult Get(int id)
         {

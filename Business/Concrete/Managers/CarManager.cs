@@ -32,7 +32,7 @@ namespace Business.Concrete.Managers
         #region Metotlar
 
         [ValidationAspect(typeof(CarValidator))]
-        [SecuredOperation("admin")]
+        //[SecuredOperation("admin")]
         public IResult Add(Car entity)
         {
             _carDal.Add(entity);

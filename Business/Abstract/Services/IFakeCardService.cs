@@ -6,6 +6,6 @@ namespace Business.Abstract.Services
 {
     public interface IFakeCardService : IServiceRepository<FakeCreditCard>
     {
-        IDataResult<FakeCreditCard> GetCardByCardNumber(string cardNumber);
+        IDataResult<FakeCreditCard> CheckCard(FakeCreditCard card, decimal price);
     }
 }

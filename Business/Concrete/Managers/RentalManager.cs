@@ -53,6 +53,16 @@ namespace Business.Concrete.Managers
             return new SuccessDataResult<Rental>(data, Messages.SuccessListed);
         }
 
+        public IDataResult<Rental> GetByCarId(int carId)
+        {
+            var data = _rentalDal.GetByCarId(x => x.CarId == carId);
+            if (data == null)
+            {
+                return new ErrorDataResult<Rental>(data, Messages.ErrorListed);
+            }
+            return new SuccessDataResult<Rental>(data, Messages.SuccessListed);
+        }
+
         public IDataResult<RentalDetailsDto> GetRentalDetailById(int id)
         {
             var data = _rentalDal.GetRentDetailsById(r => r.Id == id);

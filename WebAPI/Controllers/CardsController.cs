@@ -1,4 +1,6 @@
 ﻿using Business.Abstract.Services;
+using Business.Constants;
+using Entities.Concrete.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -13,14 +15,17 @@ namespace WebAPI.Controllers
             _cardService = cardService;
         }
 
-        [HttpGet]
-        [Route("check/{card}")]
-        public IActionResult Get(string card)
+        [HttpPost]
+        [Route("check/{price}")]
+        public IActionResult Get(FakeCreditCard card, decimal price)
         {
-            var result = _cardService.GetCardByCardNumber(card);
+            var cardResult = _cardService.CheckCard(card, price);
 
-            if (result.Success) return Ok(result);
-            return BadRequest(result);
+            if (cardResult.Success)
+            {
+                return Ok(cardResult);
+            }
+            return BadRequest(cardResult);
         }
     }
 }
