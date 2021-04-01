@@ -26,7 +26,7 @@
         public static string SuccessfulLogin = "Giris basarili.";
         public static string UserAlreadyExists = "Bu kullanici zaten kayitli.";
         public static string AccessTokenCreated = "Access token olusturuldu.";
-        public static string UserRegistered = "Kullanici kaydedildi";
+        public static string UserRegistered = "Kullanici Kaydi Tamamlandi";
         public static string ClaimsNotFound = "Aranan nitelikte kayit bulunamadi.";
         public static string ClaimAdded = "Claim Eklendi";
 

@@ -14,7 +14,6 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(c => c.CardCvv).Length(3);
 
             RuleFor(c => c.NameOnTheCard).NotEmpty();
-            RuleFor(c => c.TotalMoney).NotEmpty();
         }
     }
 }

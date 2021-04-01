@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Business.Abstract.Services;
 using Core.Entities.Concrete;
+using Entities.Concrete.DTOs;
 
 namespace WebAPI.Controllers
 {
@@ -51,9 +52,9 @@ namespace WebAPI.Controllers
 
         [HttpPost]
         [Route("update")]
-        public IActionResult Update(User user)
+        public IActionResult Update(UserForUpdateDto data)
         {
-            var result = _userManager.Update(user);
+            var result = _userManager.UpdateUser(data);
 
             if (result.Success) return Ok(result);
             return BadRequest(result);

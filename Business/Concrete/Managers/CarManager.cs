@@ -32,7 +32,7 @@ namespace Business.Concrete.Managers
         #region Metotlar
 
         [ValidationAspect(typeof(CarValidator))]
-        //[SecuredOperation("admin")]
+        [SecuredOperation("admin")]
         public IResult Add(Car entity)
         {
             _carDal.Add(entity);
@@ -92,7 +92,6 @@ namespace Business.Concrete.Managers
             }
             return new SuccessDataResult<List<CarDetailsDto>>(data, Messages.SuccessListed);
         }
-
 
         //[SecuredOperation("Car.List,admin")]
         [PerformanceAspect(5)]

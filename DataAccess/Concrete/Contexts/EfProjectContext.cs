@@ -22,5 +22,6 @@ namespace DataAccess.Concrete.Contexts
         public DbSet<FakeCreditCard> FakeCreditCards { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<UserFindexPoint> UserFindexPoints { get; set; }
+        public DbSet<UserCard> UserCards { get; set; }
     }
 }

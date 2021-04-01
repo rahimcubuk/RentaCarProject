@@ -2,6 +2,7 @@
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
+using Core.Utilities.Business;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract.Dals;
@@ -18,6 +19,15 @@ namespace Business.Concrete.Managers
         {
             _cardDal = cardDal;
         }
+
+        #region Business Rules
+        IDataResult<FakeCreditCard> CheckCreditCardExists(int card)
+        {
+            var data = _cardDal.Get(cc => cc.Id == card);
+            if (data is null) return new ErrorDataResult<FakeCreditCard>(data, Messages.NotFoundCreditCard);
+            return new SuccessDataResult<FakeCreditCard>(data);                   
+        }
+        #endregion
 
         [ValidationAspect(typeof(CardValidator))]
         public IResult Add(FakeCreditCard entity)
@@ -64,6 +74,10 @@ namespace Business.Concrete.Managers
         [ValidationAspect(typeof(CardValidator))]
         public IResult Update(FakeCreditCard entity)
         {
+            var result = CheckCreditCardExists(entity.Id);
+            if (!result.Success) return result;
+            entity.TotalMoney = result.Data.TotalMoney;
+            
             _cardDal.Update(entity);
             return new SuccessResult(Messages.SuccessUpdated);
         }

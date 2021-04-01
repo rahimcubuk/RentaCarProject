@@ -60,8 +60,20 @@ namespace Business.DependencyResolvers.Autofac
             #endregion
 
             #region FakeBank
+            #region Card
             builder.RegisterType<FakeCreditCardManager>().As<IFakeCardService>().SingleInstance();
             builder.RegisterType<EfFakeCreditCardDal>().As<IFakeCreditCardDal>().SingleInstance();
+            #endregion
+
+            #region Findex Point
+            builder.RegisterType<FindexPointManager>().As<IFindexPointService>().SingleInstance();
+            builder.RegisterType<EfFindexPointDal>().As<IFindexPointDal>().SingleInstance();
+            #endregion
+
+            #region User Card
+            builder.RegisterType<UserCardManager>().As<IUserCardService>().SingleInstance();
+            builder.RegisterType<EfUserCardDal>().As<IUserCardDal>().SingleInstance();
+            #endregion
             #endregion
 
             #region Core.Aspect

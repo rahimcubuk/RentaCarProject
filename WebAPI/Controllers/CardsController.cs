@@ -27,5 +27,15 @@ namespace WebAPI.Controllers
             }
             return BadRequest(cardResult);
         }
+
+        [HttpPost]
+        [Route("update")]
+        public IActionResult Update(FakeCreditCard card)
+        {
+            var result = _cardService.Update(card);
+
+            if (result.Success) return Ok(result);
+            return BadRequest(result);
+        }
     }
 }
