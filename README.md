@@ -1,6 +1,15 @@
 # RentaCarProject
 Kodlama.io kamp gelisim projesidir. Gelistiren Rahim Cubuk.
 
+Uygulama gelistirme surecinde back-end tarafında cok katmanli mimari kullanılmıştır. Uygulama AOP, FluentValidatın, Autofac, WebAPI ile güclendirilmiş ve SOLID kurallarına bağlı kalınmıştır.
+
+### Geliştirme Ortam Bilgileri
+* Geliştirme aşamasında "Microsoft Blend for Visual Studio Community 2019 Version 16.8.5" kullanılmıştır.
+* Veritabanı olarak MsSQL kullanılmış ve veritabanı ile iletişim "Microsoft.EntityFrameworkCore.SqlServer v3.1.11" ile sağlanmıştır.
+* Veritabanı "Microsoft SQL Server Management Studio 11.0.3000.0" ile tasarlanıştır.
+* [Frontend](https://github.com/rahimcubuk/RentaCarUI) gelistirme asamasinda "Visual Studio Code 1.54.1" kullanilmistir.
+NOT: Verıtabanı dosyaları "Entities/Database" klasörü içerisindedir. Uygun bir programda(min SQL server 12) script.sql dosyasını çalıştırırsanız veritabanı bilgisayarınıza yüklenmiş olacaktır. Sonrasında uygulamayı kullanmaya başlayabilirsiniz.
+
 ### Kodlama.io 15. gun odev gereksinimleri
 * Cache, Transaction ve Performance aspectlerini ekleyiniz.
 
@@ -66,10 +75,5 @@ Car nesnesine ek olarak;
 * InMemory formatta GetById, GetAll, Add, Update, Delete oprasyonlarını yazınız.
 * Consolda test ediniz.
 
-### Geliştirme Ortam Bilgileri
-* Geliştirme aşamasında "Microsoft Blend for Visual Studio Community 2019 Version 16.8.5" kullanılmıştır.
-* Veritabanı olarak MsSQL kullanılmış ve veritabanı ile iletişim "Microsoft.EntityFrameworkCore.SqlServer v3.1.11" ile sağlanmıştır.
-* Veritabanı "Microsoft SQL Server Management Studio 11.0.3000.0" ile tasarlanıştır.
-NOT: Verıtabanı dosyaları "Entities/Database" klasörü içerisindedir. Uygun bir programda(min SQL server 12) script.sql dosyasını çalıştırırsanız veritabanı bilgisayarınıza yüklenmiş olacaktır. Sonrasında uygulamayı kullanmaya başlayabilirsiniz.
 
 Yardım, destek, öneri için rahimcubuk@gmail.com adresine mail atabilirsiniz.
