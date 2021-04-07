@@ -1,5 +1,7 @@
 ﻿using Business.Abstract.Services;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
+using Core.Aspects.Autofac.Caching;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract.Dals;
@@ -19,24 +21,31 @@ namespace Business.Concrete.Managers
         #endregion
 
         #region Metotlar
+        [SecuredOperation("admin")]
+        [CacheRemoveAspect("BrandManager.Get")]
         public IResult Add(Brand entity)
         {
             _brandDal.Add(entity);
             return new SuccessResult(Messages.SuccessAdded);
         }
 
+        [SecuredOperation("admin")]
+        [CacheRemoveAspect("BrandManager.Get")]
         public IResult Delete(Brand entity)
         {
             _brandDal.Delete(entity);
             return new SuccessResult(Messages.SuccessDeleted);
         }
 
+        [SecuredOperation("admin")]
+        [CacheRemoveAspect("BrandManager.Get")]
         public IResult Update(Brand entity)
         {
             _brandDal.Update(entity);
             return new SuccessResult(Messages.SuccessUpdated);
         }
 
+        [CacheAspect(duration: 10)]
         public IDataResult<List<Brand>> GetAll()
         {
             var data = _brandDal.GetAll();

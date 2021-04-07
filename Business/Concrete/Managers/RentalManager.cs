@@ -1,5 +1,7 @@
 ﻿using Business.Abstract.Services;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Transaction;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
@@ -21,18 +23,23 @@ namespace Business.Concrete.Managers
         #endregion
 
         #region Metotlar
+        [SecuredOperation("admin")]
+        [CacheRemoveAspect("RentalManager.Get")]
         public IResult Add(Rental entity)
         {
             _rentalDal.Add(entity);
             return new SuccessResult(Messages.SuccessAdded);
         }
 
+        [SecuredOperation("admin")]
+        [CacheRemoveAspect("RentalManager.Get")]
         public IResult Delete(Rental entity)
         {
             _rentalDal.Delete(entity);
             return new SuccessResult(Messages.SuccessDeleted);
         }
 
+        [CacheAspect(duration: 10)]
         public IDataResult<List<Rental>> GetAll()
         {
             var data = _rentalDal.GetAll();
@@ -73,6 +80,7 @@ namespace Business.Concrete.Managers
             return new SuccessDataResult<RentalDetailsDto>(data, Messages.SuccessListed);
         }
 
+        [CacheAspect(duration: 10)]
         public IDataResult<List<RentalDetailsDto>> GetRentalDetails()
         {
             var data = _rentalDal.GetAllRentDetails();
@@ -83,6 +91,8 @@ namespace Business.Concrete.Managers
             return new SuccessDataResult<List<RentalDetailsDto>>(data, Messages.SuccessListed);
         }
 
+        [SecuredOperation("admin")]
+        [CacheRemoveAspect("RentalManager.Get")]
         public IResult Update(Rental entity)
         {
             _rentalDal.Update(entity);

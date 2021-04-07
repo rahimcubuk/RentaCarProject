@@ -33,12 +33,15 @@ namespace Business.Concrete.Managers
 
         [ValidationAspect(typeof(CarValidator))]
         [SecuredOperation("admin")]
+        [CacheRemoveAspect("CarManager.Get")]
         public IResult Add(Car entity)
         {
             _carDal.Add(entity);
             return new SuccessResult(Messages.SuccessAdded);
         }
 
+        [SecuredOperation("admin")]
+        [CacheRemoveAspect("CarManager.Get")]
         public IResult Delete(Car entity)
         {
             _carDal.Delete(entity);
@@ -46,6 +49,8 @@ namespace Business.Concrete.Managers
         }
 
         [ValidationAspect(typeof(CarValidator))]
+        [SecuredOperation("admin")]
+        [CacheRemoveAspect("CarManager.Get")]
         public IResult Update(Car entity)
         {
             _carDal.Update(entity);
@@ -116,17 +121,6 @@ namespace Business.Concrete.Managers
             return new SuccessDataResult<CarDetailsDto>(data, Messages.SuccessListed);
         }
 
-        [TransactionScopeAspect]
-        public IResult AddTransactionalTest(Car car)
-        {
-            Add(car);
-            if (car.DailyPrice < 75)
-            {
-                throw new Exception("");
-            }
-            Add(car);
-            return null;
-        }
         #endregion
     }
 }

@@ -20,7 +20,8 @@ namespace Core.Aspects.Autofac.Caching
 
         public override void Intercept(IInvocation invocation)
         {
-            var methodName = string.Format($"{invocation.Method.ReflectedType.FullName}.{invocation.Method.Name}");
+            //var methodName = string.Format($"{invocation.Method.ReflectedType.FullName}.{invocation.Method.Name}");
+            var methodName = string.Format($"{invocation.InvocationTarget}.{invocation.Method.Name}");
             var arguments = invocation.Arguments.ToList();
             var key = $"{methodName}({string.Join(",", arguments.Select(x => x?.ToString() ?? "<Null>"))})";
             if (_cacheManager.IsAdd(key))

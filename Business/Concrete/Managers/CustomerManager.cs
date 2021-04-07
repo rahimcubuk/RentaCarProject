@@ -1,5 +1,7 @@
 ﻿using Business.Abstract.Services;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
+using Core.Aspects.Autofac.Caching;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract.Dals;
@@ -20,18 +22,23 @@ namespace Business.Concrete.Managers
         #endregion
 
         #region Metotlar
+        [SecuredOperation("admin")]
+        [CacheRemoveAspect("CustomerManager.Get")]
         public IResult Add(Customer entity)
         {
             _customerDal.Add(entity);
             return new SuccessResult(Messages.SuccessAdded);
         }
 
+        [SecuredOperation("admin")]
+        [CacheRemoveAspect("CustomerManager.Get")]
         public IResult Delete(Customer entity)
         {
             _customerDal.Delete(entity);
             return new SuccessResult(Messages.SuccessDeleted);
         }
 
+        [CacheAspect(duration: 10)]
         public IDataResult<List<Customer>> GetAll()
         {
             var data = _customerDal.GetAll();
@@ -62,6 +69,7 @@ namespace Business.Concrete.Managers
             return new SuccessDataResult<CustomerDetailsDto>(data, Messages.SuccessListed);
         }
 
+        [CacheAspect(duration: 10)]
         public IDataResult<List<CustomerDetailsDto>> GetCustomersDetails()
         {
             var data = _customerDal.GetAllCustomerDetails();
@@ -72,6 +80,8 @@ namespace Business.Concrete.Managers
             return new SuccessDataResult<List<CustomerDetailsDto>>(data, Messages.SuccessListed);
         }
 
+        [SecuredOperation("admin")]
+        [CacheRemoveAspect("CustomerManager.Get")]
         public IResult Update(Customer entity)
         {
             _customerDal.Update(entity);
